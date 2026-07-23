@@ -3,24 +3,35 @@ import { partners } from '@/lib/partners'
 
 export default function Partners() {
   return (
-    <section className="py-16 md:py-20 bg-surface border-t border-black/5">
+    <section className="py-16 md:py-20 bg-white border-t border-black/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <p className="section-kicker text-center">Ecossistema</p>
-          <h2 className="section-title text-ink text-center mb-12">Parceiros e premiações</h2>
+          <h2 className="section-title text-ink text-center mb-10 md:mb-12">
+            Parceiros e premiações
+          </h2>
         </Reveal>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 items-center">
-          {partners.map((p) => (
-            <div key={p.name} className="flex items-center justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={p.img}
-                alt={p.name}
-                className="h-10 md:h-14 w-auto object-contain opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300"
-              />
+
+        <Reveal delay={80}>
+          <div className="rounded-2xl bg-[#d8dde3] px-6 py-10 md:px-12 md:py-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-x-8 gap-y-10 items-center justify-items-center">
+              {partners.map((p) => (
+                <div
+                  key={p.name}
+                  className="flex items-center justify-center w-full h-14 md:h-16"
+                  title={p.name}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    className="max-h-full max-w-[140px] w-auto object-contain opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

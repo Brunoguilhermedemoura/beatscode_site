@@ -67,10 +67,13 @@ export default function Footer() {
 
           <div>
             <h3 className="font-display font-bold text-lg mb-5">Navegação</h3>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-white/50 hover:text-primary transition-colors text-base">
+                  <Link
+                    href={link.href}
+                    className="text-white/50 hover:text-primary transition-colors text-base"
+                  >
                     {link.label}
                   </Link>
                 </li>
