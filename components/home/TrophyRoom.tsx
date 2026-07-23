@@ -1,14 +1,14 @@
 import Reveal from '@/components/shared/Reveal'
 
 const trophies = [
-  { img: 'https://beatscode.com/wp-content/uploads/2022/09/5-273x300.webp', label: 'Campeonatos Estaduais', value: 47 },
+  { img: 'https://beatscode.com/wp-content/uploads/2022/09/5-273x300.webp', label: 'Campeonatos Estaduais', value: 11 },
   { img: 'https://beatscode.com/wp-content/uploads/2022/09/4-273x300.webp', label: 'Brasileirão Série B', value: 3 },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/09/6-273x300.webp', label: 'Brasileirão Série A', value: 2 },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/09/1-273x300.webp', label: 'Copa do Brasil', value: 2 },
+  { img: 'https://beatscode.com/wp-content/uploads/2022/09/6-273x300.webp', label: 'Brasileirão Série A', value: 3 },
+  { img: 'https://beatscode.com/wp-content/uploads/2022/09/1-273x300.webp', label: 'Copa do Brasil', value: 3 },
   { img: 'https://beatscode.com/wp-content/uploads/2022/12/supercopa-do-brasil-273x300.png', label: 'Super Copa do Brasil', value: 1 },
   { img: 'https://beatscode.com/wp-content/uploads/2022/12/recopa-logo-273x300.png', label: 'Recopa Sulamericana', value: 1 },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/10/teste-55-273x300.png', label: 'Copa Sulamericana', value: 1 },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/10/teste22-273x300.png', label: 'Copa Libertadores', value: 1 },
+  { img: 'https://beatscode.com/wp-content/uploads/2022/10/teste-55-273x300.png', label: 'Copa Sulamericana', value: 2 },
+  { img: 'https://beatscode.com/wp-content/uploads/2022/10/teste22-273x300.png', label: 'Copa Libertadores', value: 3 },
 ]
 
 export default function TrophyRoom() {
