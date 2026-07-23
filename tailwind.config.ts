@@ -11,11 +11,20 @@ const config: Config = {
       colors: {
         primary: '#00a651',
         'primary-dark': '#007a3d',
-        dark: '#0d1117',
-        'dark-2': '#161b22',
+        'primary-soft': '#1bd46a',
+        dark: '#0a0f0c',
+        'dark-2': '#121a15',
+        'dark-3': '#1a241c',
+        surface: '#f4f7f5',
+        ink: '#0e1611',
+        muted: '#5c6b62',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-syne)', 'system-ui', 'sans-serif'],
+      },
+      maxWidth: {
+        '8xl': '88rem',
       },
     },
   },

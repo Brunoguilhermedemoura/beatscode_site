@@ -1,8 +1,9 @@
 'use client'
-import { useState } from 'react'
+
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { LOGO_URL } from '@/lib/clubs'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -15,44 +16,59 @@ const navLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const isHome = pathname === '/'
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
+  const solid = scrolled || !isHome || menuOpen
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        solid ? 'bg-dark/95 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/20' : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0 relative z-10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://beatscode.com/wp-content/uploads/2022/02/beatscode-logo-3-300x102.png"
+              src={LOGO_URL}
               alt="BeatsCode"
-              className="h-10 w-auto"
+              className="h-9 md:h-10 w-auto brightness-0 invert"
             />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.href ? 'text-primary' : 'text-gray-700'
+                className={`text-sm font-medium transition-colors ${
+                  pathname === link.href ? 'text-primary-soft' : 'text-white/70 hover:text-white'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contato"
-              className="btn-primary text-sm py-2 px-5"
-            >
+            <Link href="/contato" className="btn-primary text-sm py-2.5 px-5">
               Agende uma demo
             </Link>
           </nav>
 
-          {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 text-gray-700"
+            className="lg:hidden p-2 text-white relative z-10"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
@@ -67,27 +83,21 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t">
-          <div className="px-4 py-4 space-y-3">
+        <div className="lg:hidden bg-dark border-t border-white/5">
+          <div className="px-4 py-5 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={`block text-sm font-medium py-2 ${
-                  pathname === link.href ? 'text-primary' : 'text-gray-700'
+                className={`block text-sm font-medium py-3 ${
+                  pathname === link.href ? 'text-primary-soft' : 'text-white/80'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contato"
-              onClick={() => setMenuOpen(false)}
-              className="btn-primary text-sm w-full text-center block"
-            >
+            <Link href="/contato" className="btn-primary text-sm w-full text-center mt-3">
               Agende uma demo
             </Link>
           </div>

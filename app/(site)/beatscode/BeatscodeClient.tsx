@@ -1,6 +1,8 @@
 'use client'
+
 import { useState } from 'react'
 import DemoModal from '@/components/shared/DemoModal'
+import Reveal from '@/components/shared/Reveal'
 
 const advantages = [
   {
@@ -44,26 +46,28 @@ export default function BeatscodeClient() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-dark text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pitch-grain text-white pt-32 pb-20 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">Sobre nós</p>
-              <h1 className="text-4xl md:text-5xl font-black leading-tight mb-6">
-                Programados para dar nosso melhor sempre. Prontos para conquistar vitórias.
+              <p className="section-kicker">Sobre nós</p>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight mb-6">
+                Programados para dar nosso melhor sempre.
               </h1>
-              <p className="text-gray-400 leading-relaxed mb-8">
-                A BeatsCode é uma sportech referência no cenário nacional, focada no desenvolvimento de soluções e serviços inovadores para a Gestão Técnica de Clubes de Futebol, aliando a paixão pelo esporte e pela tecnologia para criar uma plataforma inteligente que centraliza, processa e gera informações que organizam, inovam e transformam a gestão do futebol. Desde 2015, nosso propósito é revolucionar a gestão de clubes de futebol através da tecnologia e inovação.
+              <p className="text-white/55 leading-relaxed mb-8 text-lg">
+                A BeatsCode é uma sportech referência no cenário nacional, focada no desenvolvimento de
+                soluções e serviços inovadores para a Gestão Técnica de Clubes de Futebol. Desde 2015,
+                nosso propósito é revolucionar a gestão de clubes através da tecnologia e inovação.
               </p>
               <button onClick={() => setModalOpen(true)} className="btn-primary">
                 Agende uma demonstração
               </button>
             </div>
             <div className="flex justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://beatscode.com/wp-content/uploads/2022/06/MAN.png"
-                alt="BeatsCode Team"
+                alt="BeatsCode"
                 className="w-full max-w-md object-contain"
               />
             </div>
@@ -71,55 +75,77 @@ export default function BeatscodeClient() {
         </div>
       </section>
 
-      {/* Advantages */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-dark mb-4">Coloque seu clube em outro patamar no futebol</h2>
-          <p className="text-center text-gray-600 mb-12">Principais vantagens da tecnologia BeatsCode</p>
+          <Reveal>
+            <p className="section-kicker text-center">Vantagens</p>
+            <h2 className="section-title text-ink text-center mb-4">
+              Coloque seu clube em outro patamar
+            </h2>
+            <p className="text-center text-muted mb-14 max-w-xl mx-auto">
+              Principais vantagens da tecnologia BeatsCode
+            </p>
+          </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {advantages.map((a) => (
-              <div key={a.title} className="text-center p-6 rounded-xl bg-gray-50 hover:bg-primary/5 transition-colors">
-                <img src={a.img} alt={a.title} className="w-16 h-16 object-contain mx-auto mb-4" />
-                <h3 className="font-bold text-dark mb-3">{a.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{a.desc}</p>
-              </div>
+            {advantages.map((a, i) => (
+              <Reveal key={a.title} delay={i * 60}>
+                <div className="border-t border-primary/30 pt-6 h-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={a.img} alt={a.title} className="w-14 h-14 object-contain mb-4" />
+                  <h3 className="font-display font-bold text-ink mb-3 text-lg">{a.title}</h3>
+                  <p className="text-muted text-sm leading-relaxed">{a.desc}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* People + Tech */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 bg-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-black text-dark mb-6">Pessoas e tecnologia, juntas, para o máximo desempenho</h2>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Com trabalho árduo e dedicação do nosso time, buscamos desenvolver soluções otimizadas e inovadoras, colocando as pessoas alinhadas às tecnologias, auxiliando os clubes a possibilitar novos comportamentos de seus colaboradores, diretores, comissões técnicas e atletas para, assim, realizarem uma transformação digital na gestão de futebol dos seus clubes, com confiabilidade e excelência.
+          <div className="grid md:grid-cols-2 gap-14 items-center">
+            <Reveal>
+              <p className="section-kicker">Nosso jeito</p>
+              <h2 className="section-title text-white mb-6">
+                Pessoas e tecnologia, juntas, para o máximo desempenho
+              </h2>
+              <p className="text-white/55 leading-relaxed mb-8">
+                Com trabalho árduo e dedicação do nosso time, buscamos desenvolver soluções otimizadas e
+                inovadoras, colocando as pessoas alinhadas às tecnologias, auxiliando os clubes a
+                possibilitar novos comportamentos de seus colaboradores, diretores, comissões técnicas e
+                atletas — com confiabilidade e excelência.
               </p>
               <button onClick={() => setModalOpen(true)} className="btn-primary">
                 Agende uma demonstração
               </button>
-            </div>
-            <div>
+            </Reveal>
+            <Reveal delay={100}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://beatscode.com/wp-content/uploads/2022/06/SOBRE-PESSOAS-E-TEC3-copy.png"
                 alt="Pessoas e tecnologia"
-                className="w-full rounded-xl"
+                className="w-full"
               />
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Partners */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="section-title text-dark mb-12">Parceiros e premiações</h2>
+          <Reveal>
+            <p className="section-kicker text-center">Ecossistema</p>
+            <h2 className="section-title text-ink text-center mb-12">Parceiros e premiações</h2>
+          </Reveal>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 items-center">
             {partners.map((p) => (
               <div key={p.name} className="flex items-center justify-center">
-                <img src={p.img} alt={p.name} className="h-12 w-auto object-contain grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all"
+                />
               </div>
             ))}
           </div>

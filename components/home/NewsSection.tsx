@@ -1,33 +1,58 @@
 import Link from 'next/link'
 import { Post } from '@/types'
+import Reveal from '@/components/shared/Reveal'
 
 export default function NewsSection({ posts }: { posts: Post[] }) {
+  if (!posts.length) return null
+
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-24 md:py-28 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="section-title text-dark">Novidades e Informações</h2>
-          <p className="text-gray-600 mt-2">Conheça as novidades da BeatsCode e informações importantes sobre o universo do futebol.</p>
-        </div>
+        <Reveal>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+            <div>
+              <p className="section-kicker">Conteúdo</p>
+              <h2 className="section-title text-ink">Novidades e informações</h2>
+              <p className="text-muted mt-3 max-w-lg">
+                Acompanhe as novidades da BeatsCode e o universo do futebol.
+              </p>
+            </div>
+            <Link href="/noticias" className="btn-outline self-start sm:self-auto">
+              Ver todas
+            </Link>
+          </div>
+        </Reveal>
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.slice(0, 6).map((post) => (
-            <article key={post.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
-              {post.cover_image && (
-                <img src={post.cover_image} alt={post.title} className="w-full h-48 object-cover" />
-              )}
-              <div className="p-6 flex flex-col flex-1">
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">{post.category}</span>
-                <h3 className="font-bold text-lg text-dark leading-snug mb-3 flex-1">{post.title}</h3>
-                <p className="text-gray-500 text-sm mb-4 line-clamp-2">{post.excerpt}</p>
-                <Link href={`/noticias/${post.slug}`} className="text-primary font-semibold text-sm hover:underline">
-                  Ver mais →
+          {posts.slice(0, 6).map((post, i) => (
+            <Reveal key={post.id} delay={i * 60}>
+              <article className="group flex flex-col h-full border-b border-black/10 pb-8">
+                {post.cover_image && (
+                  <div className="overflow-hidden mb-5 aspect-[16/10] bg-dark-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={post.cover_image}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                )}
+                <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
+                  {post.category}
+                </span>
+                <h3 className="font-display text-xl font-bold text-ink leading-snug mb-3 group-hover:text-primary transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-muted text-sm mb-4 line-clamp-2 flex-1">{post.excerpt}</p>
+                <Link
+                  href={`/noticias/${post.slug}`}
+                  className="text-primary font-semibold text-sm hover:underline underline-offset-4"
+                >
+                  Ler artigo →
                 </Link>
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
-        </div>
-        <div className="text-center mt-12">
-          <Link href="/noticias" className="btn-outline">Ver todas as notícias</Link>
         </div>
       </div>
     </section>

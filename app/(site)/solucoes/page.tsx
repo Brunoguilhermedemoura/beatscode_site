@@ -1,6 +1,8 @@
 'use client'
+
 import { useState } from 'react'
 import DemoModal from '@/components/shared/DemoModal'
+import Reveal from '@/components/shared/Reveal'
 
 const modules = [
   {
@@ -38,62 +40,96 @@ export default function SolucoesPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-dark text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-black mb-4">Soluções</h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+      <section className="relative pitch-grain text-white pt-32 pb-20 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="section-kicker">Plataforma</p>
+          <h1 className="font-display text-4xl md:text-6xl font-extrabold mb-4 tracking-tight max-w-3xl">
+            Soluções
+          </h1>
+          <p className="text-white/55 text-lg max-w-2xl">
             Gestão técnica inteligente, da base à elite do futebol brasileiro.
           </p>
         </div>
       </section>
 
-      {/* Intro */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-black text-dark mb-4">A melhor tática é usar a gestão para conquistar resultados!</h2>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Com a plataforma online da <strong>BeatsCode</strong> é possível organizar, visualizar e planejar a gestão técnica do departamento de futebol e acompanhar o crescimento do seu clube com dados valiosos e uma comunicação integrada com todo o time.
+          <div className="grid md:grid-cols-2 gap-14 items-center">
+            <Reveal>
+              <p className="section-kicker">Visão geral</p>
+              <h2 className="section-title text-ink mb-4">
+                A melhor tática é usar a gestão para conquistar resultados
+              </h2>
+              <p className="text-muted leading-relaxed mb-6">
+                Com a plataforma online da <strong className="text-ink">BeatsCode</strong> é possível
+                organizar, visualizar e planejar a gestão técnica do departamento de futebol e acompanhar
+                o crescimento do seu clube com dados valiosos e comunicação integrada.
               </p>
-              <ul className="space-y-2 mb-8">
-                {['Otimize processos e ganhe tempo', 'Acompanhe a evolução de atletas', 'Praticidade na comunicação com todo o clube'].map(item => (
-                  <li key={item} className="flex items-center gap-2 text-gray-700">
-                    <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0"/>
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Otimize processos e ganhe tempo',
+                  'Acompanhe a evolução de atletas',
+                  'Praticidade na comunicação com todo o clube',
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-ink">
+                    <span className="w-1.5 h-1.5 bg-primary flex-shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <button onClick={() => setModal(true)} className="btn-primary">Agende uma demonstração</button>
-            </div>
-            <img src="https://beatscode.com/wp-content/uploads/2022/02/SOLUCOES01.png" alt="Soluções" className="w-full rounded-xl" />
+              <button onClick={() => setModal(true)} className="btn-primary">
+                Agende uma demonstração
+              </button>
+            </Reveal>
+            <Reveal delay={100}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://beatscode.com/wp-content/uploads/2022/02/SOLUCOES01.png"
+                alt="Soluções BeatsCode"
+                className="w-full shadow-2xl shadow-primary/10"
+              />
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Modules */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+      <section className="py-24 bg-dark text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
           {modules.map((mod, i) => (
-            <div key={mod.id} id={mod.id} className={`grid md:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-              <div className={i % 2 === 1 ? 'md:order-2' : ''}>
-                <img src={mod.img} alt={mod.title} className="w-full rounded-xl shadow-md" />
-              </div>
-              <div className={i % 2 === 1 ? 'md:order-1' : ''}>
-                <h3 className="text-2xl font-black text-dark mb-4">{mod.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-6">{mod.desc}</p>
-                <ul className="space-y-2">
-                  {mod.features.map(f => (
-                    <li key={f} className="flex items-center gap-2 text-gray-700 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"/>
+            <div
+              key={mod.id}
+              id={mod.id}
+              className="grid md:grid-cols-2 gap-12 items-center scroll-mt-28"
+            >
+              <Reveal className={i % 2 === 1 ? 'md:order-2' : ''}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={mod.img} alt={mod.title} className="w-full border border-white/5" />
+              </Reveal>
+              <Reveal delay={80} className={i % 2 === 1 ? 'md:order-1' : ''}>
+                <p className="section-kicker">Módulo {String(i + 1).padStart(2, '0')}</p>
+                <h3 className="font-display text-3xl font-bold mb-4">{mod.title}</h3>
+                <p className="text-white/55 leading-relaxed mb-6">{mod.desc}</p>
+                <ul className="grid sm:grid-cols-2 gap-2">
+                  {mod.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-white/80 text-sm">
+                      <span className="w-1 h-1 bg-primary flex-shrink-0" />
                       {f}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Reveal>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="py-20 bg-surface text-center">
+        <div className="max-w-2xl mx-auto px-4">
+          <h2 className="section-title text-ink mb-4">Pronto para revolucionar a gestão?</h2>
+          <p className="text-muted mb-8">Agende uma demonstração com nosso time.</p>
+          <button onClick={() => setModal(true)} className="btn-primary px-8 py-4">
+            Agende uma demonstração
+          </button>
         </div>
       </section>
 

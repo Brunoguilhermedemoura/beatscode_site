@@ -1,54 +1,50 @@
 'use client'
+
 import { useState } from 'react'
+import Link from 'next/link'
 import DemoModal from '@/components/shared/DemoModal'
+import { LOGO_URL, PLATFORM_IMG } from '@/lib/clubs'
 
 export default function Hero() {
   const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <>
-      <section className="bg-dark text-white py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://beatscode.com/wp-content/uploads/2022/10/HOME-IMG1.png')] bg-right bg-no-repeat bg-contain opacity-10 pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">Transformação Digital</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-                Decida revolucionar a gestão de futebol do seu clube.
-              </h1>
-              <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                Com a plataforma online da <strong className="text-white">BeatsCode</strong> é possível organizar, visualizar e planejar a gestão técnica do departamento de futebol.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button onClick={() => setModalOpen(true)} className="btn-primary text-base px-8 py-4">
-                  Agende uma demonstração
-                </button>
-                <a href="/solucoes" className="btn-outline text-base px-8 py-4">
-                  Conheça as soluções
-                </a>
-              </div>
+      <section className="relative min-h-[100svh] flex items-end md:items-center overflow-hidden pitch-grain text-white">
+        {/* Full-bleed product plane */}
+        <div className="absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={PLATFORM_IMG}
+            alt=""
+            aria-hidden
+            className="absolute right-[-8%] top-1/2 -translate-y-1/2 w-[78%] max-w-5xl object-contain opacity-[0.22] md:opacity-[0.32] select-none pointer-events-none animate-fade-in"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/90 to-dark/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/50" />
+        </div>
 
-              <div className="grid grid-cols-2 gap-4 mt-12">
-                {[
-                  'Retenção de dados técnicos',
-                  'Eficiência na Comunicação',
-                  'Engajamento dos profissionais',
-                  'Padronização de dados',
-                  'Legado e Integridade',
-                  'Evolução de atletas',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-sm text-gray-300">
-                    <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0"/>
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="hidden md:flex justify-end">
-              <img
-                src="https://beatscode.com/wp-content/uploads/2022/10/HOME-IMG1.png"
-                alt="Plataforma BeatsCode"
-                className="w-full max-w-xl object-contain"
-              />
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-32 md:py-28">
+          <div className="max-w-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={LOGO_URL}
+              alt="BeatsCode"
+              className="h-12 md:h-16 w-auto mb-8 brightness-0 invert animate-brand-in"
+            />
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.05] tracking-tight mb-6 animate-fade-up delay-1">
+              Gestão técnica que o campo sente.
+            </h1>
+            <p className="text-lg md:text-xl text-white/65 leading-relaxed mb-10 max-w-xl animate-fade-up delay-2">
+              Organize, visualize e planeje o departamento de futebol do seu clube — da base à elite — em uma plataforma na nuvem.
+            </p>
+            <div className="flex flex-wrap gap-4 animate-fade-up delay-3">
+              <button onClick={() => setModalOpen(true)} className="btn-primary text-base px-8 py-4">
+                Agende uma demonstração
+              </button>
+              <Link href="/solucoes" className="btn-ghost text-base px-8 py-4">
+                Conheça as soluções
+              </Link>
             </div>
           </div>
         </div>

@@ -1,3 +1,5 @@
+import Reveal from '@/components/shared/Reveal'
+
 const trophies = [
   { img: 'https://beatscode.com/wp-content/uploads/2022/09/5-273x300.webp', label: 'Campeonatos Estaduais', value: 47 },
   { img: 'https://beatscode.com/wp-content/uploads/2022/09/4-273x300.webp', label: 'Brasileirão Série B', value: 3 },
@@ -11,22 +13,37 @@ const trophies = [
 
 export default function TrophyRoom() {
   return (
-    <section className="py-20 bg-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-4">
-          <h2 className="section-title text-white">Sala de troféus</h2>
-          <p className="text-gray-400">Soluções que entram em campo para conquistar vitórias!</p>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-12">
-          {trophies.map((t) => (
-            <div key={t.label} className="text-center">
-              <img src={t.img} alt={t.label} className="w-24 h-28 object-contain mx-auto mb-4" />
-              <p className="text-3xl font-black text-primary mb-1">{t.value}</p>
-              <p className="text-gray-400 text-sm">{t.label}</p>
-            </div>
+    <section className="py-24 md:py-28 bg-dark text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(0,166,81,0.12),_transparent_55%)]" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <p className="section-kicker text-center">Sala de troféus</p>
+          <h2 className="section-title text-white text-center mb-3">
+            Soluções que entram em campo para conquistar vitórias
+          </h2>
+          <p className="text-white/50 text-center max-w-xl mx-auto mb-16">
+            Títulos conquistados por clubes que utilizam a plataforma BeatsCode.
+          </p>
+        </Reveal>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-10">
+          {trophies.map((t, i) => (
+            <Reveal key={t.label} delay={i * 50}>
+              <div className="text-center group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={t.img}
+                  alt={t.label}
+                  className="w-20 h-24 md:w-24 md:h-28 object-contain mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
+                />
+                <p className="font-display text-3xl font-extrabold text-primary mb-1">{t.value}</p>
+                <p className="text-white/45 text-sm">{t.label}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
-        <p className="text-center text-gray-500 text-xs mt-8">Dados considerados apenas para categoria profissional masculina.</p>
+        <p className="text-center text-white/30 text-xs mt-12">
+          Dados considerados apenas para categoria profissional masculina.
+        </p>
       </div>
     </section>
   )

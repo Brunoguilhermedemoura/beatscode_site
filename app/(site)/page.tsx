@@ -1,46 +1,33 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
-import Stats from '@/components/home/Stats'
+import ClubsMarquee from '@/components/home/ClubsMarquee'
+import ValueProps from '@/components/home/ValueProps'
 import Solutions from '@/components/home/Solutions'
-import ClubsSection from '@/components/home/ClubsSection'
+import Stats from '@/components/home/Stats'
+import TrophyRoom from '@/components/home/TrophyRoom'
 import NewsSection from '@/components/home/NewsSection'
 import Partners from '@/components/home/Partners'
-import TrophyRoom from '@/components/home/TrophyRoom'
 import ContactFormSection from '@/components/home/ContactFormSection'
-import { createServiceClient } from '@/lib/supabase'
-import { Post } from '@/types'
+import { getPublishedPosts } from '@/lib/posts'
 
 export const metadata: Metadata = {
   title: 'BeatsCode | Gestão Técnica Inteligente de Futebol',
-  description: 'Plataforma de gestão técnica inteligente para clubes de futebol, da base à elite do futebol brasileiro.',
-}
-
-async function getPosts(): Promise<Post[]> {
-  try {
-    const supabase = createServiceClient()
-    const { data } = await supabase
-      .from('posts')
-      .select('*')
-      .eq('published', true)
-      .order('created_at', { ascending: false })
-      .limit(6)
-    return data || []
-  } catch {
-    return []
-  }
+  description:
+    'Plataforma de gestão técnica inteligente para clubes de futebol, da base à elite do futebol brasileiro.',
 }
 
 export default async function HomePage() {
-  const posts = await getPosts()
+  const posts = await getPublishedPosts(6)
   return (
     <>
       <Hero />
-      <Stats />
+      <ClubsMarquee />
+      <ValueProps />
       <Solutions />
-      <ClubsSection />
+      <Stats />
+      <TrophyRoom />
       <NewsSection posts={posts} />
       <Partners />
-      <TrophyRoom />
       <ContactFormSection />
     </>
   )
