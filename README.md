@@ -1,4 +1,4 @@
-# BeatsCode — Next.js 14
+# BeatsCode_site
 
 Recriação completa do site [beatscode.com](https://beatscode.com) em **Next.js 14** com TypeScript, Tailwind CSS, Supabase e painel administrativo.
 
