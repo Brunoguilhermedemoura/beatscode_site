@@ -32,10 +32,10 @@ export default function ModulesSection() {
                 className="grid md:grid-cols-2 gap-10 md:gap-14 items-center scroll-mt-28"
               >
                 <Reveal className={imageFirst ? '' : 'md:order-2'}>
-                  <div className="bg-white px-6 py-10 md:px-10 md:py-12 flex items-center justify-center min-h-[200px]">
+                  <div className="bg-dark px-6 py-10 md:px-10 md:py-12 flex items-center justify-center min-h-[200px]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={mod.imgColor}
+                      src={mod.imgNegativo}
                       alt={mod.title}
                       className="w-full max-w-md object-contain"
                     />

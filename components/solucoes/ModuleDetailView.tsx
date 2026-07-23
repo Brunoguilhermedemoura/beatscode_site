@@ -176,7 +176,7 @@ export default function ModuleDetailView({ mod }: { mod: SolutionModule }) {
 
   return (
     <>
-      <section className="bg-white pt-28 pb-10 border-b border-black/5">
+      <section className="bg-surface pt-28 pb-10 border-b border-black/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/solucoes"
