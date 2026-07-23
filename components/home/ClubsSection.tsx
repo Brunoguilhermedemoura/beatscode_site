@@ -10,38 +10,38 @@ export default function ClubsSection() {
         <Reveal>
           <p className="section-kicker text-center">Clientes</p>
           <h2 className="section-title text-ink text-center mb-4">Clubes que confiam na BeatsCode</h2>
-          <p className="text-muted text-center max-w-xl mx-auto mb-14">
+          <p className="text-muted text-center max-w-xl mx-auto mb-12 text-lg">
             Da elite ao desenvolvimento de base — clubes de todo o Brasil usam a plataforma.
           </p>
         </Reveal>
-        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-6 md:gap-8">
-          {clubs.map((club, i) => {
+
+        <div className="flex flex-wrap justify-center items-center gap-5 md:gap-6 max-w-5xl mx-auto">
+          {clubs.map((club) => {
             const inner = (
               <div
                 title={club.name}
-                className="flex items-center justify-center p-2 opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-110 min-h-[3.5rem]"
+                className="opacity-95 hover:opacity-100 transition-transform duration-300 hover:scale-110"
               >
-                <ClubLogo club={club} />
+                <ClubLogo club={club} size={84} />
               </div>
             )
 
-            return (
-              <Reveal key={club.name} delay={(i % 8) * 30}>
-                {club.href ? (
-                  <a
-                    href={club.href}
-                    target={club.href.startsWith('http') ? '_blank' : undefined}
-                    rel={club.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  >
-                    {inner}
-                  </a>
-                ) : (
-                  inner
-                )}
-              </Reveal>
+            return club.href ? (
+              <a
+                key={club.name}
+                href={club.href}
+                target={club.href.startsWith('http') ? '_blank' : undefined}
+                rel={club.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="block"
+              >
+                {inner}
+              </a>
+            ) : (
+              <div key={club.name}>{inner}</div>
             )
           })}
         </div>
+
         <div className="text-center mt-12">
           <Link href="/contato" className="btn-outline">
             Quero meu clube aqui

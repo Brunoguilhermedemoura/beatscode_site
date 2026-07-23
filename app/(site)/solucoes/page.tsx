@@ -43,7 +43,7 @@ export default function SolucoesPage() {
       <section className="relative pitch-grain text-white pt-32 pb-20 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="section-kicker">Plataforma</p>
-          <h1 className="font-display text-4xl md:text-6xl font-extrabold mb-4 tracking-tight max-w-3xl">
+          <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 max-w-3xl">
             Soluções
           </h1>
           <p className="text-white/55 text-lg max-w-2xl">

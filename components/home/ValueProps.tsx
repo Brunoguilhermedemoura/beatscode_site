@@ -37,7 +37,7 @@ export default function ValueProps() {
           <h2 className="section-title text-ink max-w-3xl mb-4">
             A melhor tática é usar a gestão para conquistar resultados.
           </h2>
-          <p className="text-muted text-lg max-w-2xl mb-16">
+          <p className="text-muted text-xl max-w-2xl mb-16 leading-relaxed">
             Visão geral, online e prática do departamento de futebol — para decisões mais assertivas rumo à vitória.
           </p>
         </Reveal>
@@ -46,8 +46,8 @@ export default function ValueProps() {
           {benefits.map((b, i) => (
             <Reveal key={b.title} delay={i * 60}>
               <div className="border-t border-primary/30 pt-6">
-                <h3 className="font-display text-xl font-bold text-ink mb-2">{b.title}</h3>
-                <p className="text-muted leading-relaxed">{b.desc}</p>
+                <h3 className="font-display text-2xl font-bold text-ink mb-2">{b.title}</h3>
+                <p className="text-muted text-lg leading-relaxed">{b.desc}</p>
               </div>
             </Reveal>
           ))}

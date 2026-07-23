@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import DemoModal from '@/components/shared/DemoModal'
 import Reveal from '@/components/shared/Reveal'
+import { partners } from '@/lib/partners'
 
 const advantages = [
   {
@@ -27,20 +28,6 @@ const advantages = [
   },
 ]
 
-const partners = [
-  { img: 'https://beatscode.com/wp-content/uploads/2022/11/inovativa_brasil-1024x518.png', name: 'Inovativa Brasil' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/11/sinapse-inovacao.png', name: 'Sinapse Inovação' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/11/capital-empreendedor.png', name: 'Capital Empreendedor' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/12/sc-global-verde.png', name: 'SC Global' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/11/Logo-Startup-SC-1024x168-1.png', name: 'Startup SC' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/11/pollen.png', name: 'Pollen' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/11/unochapeco.png', name: 'Unochapecó' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/11/certi.png', name: 'Certi' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/11/fapesc.png', name: 'FAPESC' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/11/inctech-1024x1024.png', name: 'Inctech' },
-  { img: 'https://beatscode.com/wp-content/uploads/2022/12/sebrae-azul.png', name: 'Sebrae' },
-]
-
 export default function BeatscodeClient() {
   const [modalOpen, setModalOpen] = useState(false)
 
@@ -51,7 +38,7 @@ export default function BeatscodeClient() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="section-kicker">Sobre nós</p>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight mb-6">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] mb-6">
                 Programados para dar nosso melhor sempre.
               </h1>
               <p className="text-white/55 leading-relaxed mb-8 text-lg">
@@ -144,7 +131,7 @@ export default function BeatscodeClient() {
                 <img
                   src={p.img}
                   alt={p.name}
-                  className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all"
+                  className="h-10 md:h-14 w-auto object-contain opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300"
                 />
               </div>
             ))}

@@ -30,21 +30,29 @@ export default async function PostPage({ params }: { params: { slug: string } })
   const post = await getPostBySlug(params.slug)
   if (!post) notFound()
 
+  const category =
+    !post.category || /sem categoria/i.test(post.category) ? 'Notícias' : post.category
+
   return (
     <>
-      <section className="relative pitch-grain text-white pt-32 pb-16 overflow-hidden">
+      <section className="relative pitch-grain text-white pt-36 md:pt-40 pb-16 overflow-hidden">
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/noticias"
-            className="text-primary-soft text-sm hover:underline mb-6 inline-flex items-center gap-1"
+            className="inline-flex items-center gap-2 mb-8 rounded-sm border border-white/20 bg-white/5 hover:bg-white/10 hover:border-primary/50 px-4 py-2.5 text-base font-medium text-white transition-colors"
           >
-            ← Voltar para Notícias
+            <svg className="w-5 h-5 text-primary-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Voltar para Notícias
           </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-              {post.category}
+
+          <div className="flex flex-wrap items-center gap-3 mb-5">
+            <span className="text-sm font-semibold text-primary-soft uppercase tracking-wider">
+              {category}
             </span>
-            <span className="text-white/40 text-sm">
+            <span className="text-white/30">·</span>
+            <span className="text-white/50 text-base">
               {new Date(post.created_at).toLocaleDateString('pt-BR', {
                 day: '2-digit',
                 month: 'long',
@@ -52,35 +60,45 @@ export default async function PostPage({ params }: { params: { slug: string } })
               })}
             </span>
           </div>
-          <h1 className="font-display text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
             {post.title}
           </h1>
         </div>
       </section>
 
-      <article className="py-16 bg-surface">
+      <article className="py-12 md:py-16 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {post.cover_image && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={post.cover_image}
-              alt={post.title}
-              className="w-full mb-10 object-cover max-h-[480px]"
-            />
+            <div className="mb-10 overflow-hidden bg-dark-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={post.cover_image}
+                alt={post.title}
+                className="w-full h-auto max-h-[520px] object-contain mx-auto"
+              />
+            </div>
           )}
           <div
             className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-ink prose-p:text-muted prose-strong:text-ink prose-a:text-primary"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
-          <div className="mt-16 pt-10 border-t border-black/10">
-            <p className="font-display text-xl font-bold text-ink mb-2">Seja campeão</p>
-            <p className="text-muted mb-6">
-              Quer saber mais sobre nossas soluções e revolucionar a gestão do seu time de futebol?
-            </p>
-            <Link href="/contato" className="btn-primary">
-              Entre em contato
-            </Link>
+          <div className="mt-16 pt-10 border-t border-black/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div>
+              <p className="font-display text-xl font-bold text-ink mb-2">Seja campeão</p>
+              <p className="text-muted">
+                Quer saber mais sobre nossas soluções e revolucionar a gestão do seu time?
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/noticias" className="btn-outline">
+                Ver todas as notícias
+              </Link>
+              <Link href="/contato" className="btn-primary">
+                Entre em contato
+              </Link>
+            </div>
           </div>
         </div>
       </article>

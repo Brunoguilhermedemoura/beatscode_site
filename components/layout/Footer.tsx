@@ -22,7 +22,7 @@ export default function Footer() {
               alt="BeatsCode"
               className="h-10 w-auto mb-6 brightness-0 invert"
             />
-            <p className="text-white/45 text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="text-white/50 text-base leading-relaxed mb-6 max-w-xs">
               Sportech de gestão técnica inteligente para clubes de futebol, desde 2015.
             </p>
             <div className="flex gap-3">
@@ -70,7 +70,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-white/45 hover:text-primary transition-colors text-sm">
+                  <Link href={link.href} className="text-white/50 hover:text-primary transition-colors text-base">
                     {link.label}
                   </Link>
                 </li>
@@ -80,7 +80,7 @@ export default function Footer() {
 
           <div>
             <h3 className="font-display font-bold text-lg mb-5">Contato</h3>
-            <div className="space-y-4 text-sm text-white/45">
+            <div className="space-y-4 text-base text-white/50">
               <a
                 href="https://wa.me/5549991451807"
                 target="_blank"
@@ -103,7 +103,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/35">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-base text-white/40">
           <p>Copyright © {new Date().getFullYear()} BeatsCode. Todos os direitos reservados.</p>
           <Link href="/politica-de-privacidade" className="hover:text-primary transition-colors">
             Política de Privacidade

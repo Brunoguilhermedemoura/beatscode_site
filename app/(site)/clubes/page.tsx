@@ -12,7 +12,7 @@ export default function ClubesPage() {
       <section className="relative pitch-grain text-white pt-32 pb-20 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="section-kicker">Clientes</p>
-          <h1 className="font-display text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
+          <h1 className="font-display text-4xl md:text-6xl font-bold mb-4">
             Clubes
           </h1>
           <p className="text-white/55 text-lg max-w-2xl mx-auto">

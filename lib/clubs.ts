@@ -54,4 +54,6 @@ export const clubs: Club[] = [
 ]
 
 export const LOGO_URL = `${WP}/2022/02/beatscode-logo-3-300x102.png`
-export const PLATFORM_IMG = `${WP}/2022/10/HOME-IMG1.png`
+/** Visual do hero — captura da plataforma (local, sem a foto do técnico) */
+export const PLATFORM_IMG = '/hero/solucoes.png'
+export const HERO_PLATFORM_IMG = '/hero/platform.webp'

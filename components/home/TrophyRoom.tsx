@@ -21,7 +21,7 @@ export default function TrophyRoom() {
           <h2 className="section-title text-white text-center mb-3">
             Soluções que entram em campo para conquistar vitórias
           </h2>
-          <p className="text-white/50 text-center max-w-xl mx-auto mb-16">
+          <p className="text-white/55 text-center max-w-xl mx-auto mb-16 text-xl">
             Títulos conquistados por clubes que utilizam a plataforma BeatsCode.
           </p>
         </Reveal>
@@ -35,8 +35,8 @@ export default function TrophyRoom() {
                   alt={t.label}
                   className="w-20 h-24 md:w-24 md:h-28 object-contain mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
                 />
-                <p className="font-display text-3xl font-extrabold text-primary mb-1">{t.value}</p>
-                <p className="text-white/45 text-sm">{t.label}</p>
+                <p className="font-display text-4xl font-bold text-primary mb-1 tabular-nums">{t.value}</p>
+                <p className="text-white/50 text-base md:text-lg">{t.label}</p>
               </div>
             </Reveal>
           ))}

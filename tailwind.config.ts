@@ -21,7 +21,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Outfit', 'system-ui', 'sans-serif'],
-        display: ['Syne', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
         '8xl': '88rem',

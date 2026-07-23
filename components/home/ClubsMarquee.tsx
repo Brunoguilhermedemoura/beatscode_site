@@ -8,17 +8,17 @@ export default function ClubsMarquee() {
 
   return (
     <section className="bg-dark border-y border-white/5 py-8 overflow-hidden">
-      <p className="text-center text-xs uppercase tracking-[0.25em] text-white/40 mb-6 font-medium">
+      <p className="text-center text-sm uppercase tracking-[0.25em] text-white/45 mb-6 font-medium">
         Clubes que confiam na BeatsCode
       </p>
       <div className="relative">
         <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-28 bg-gradient-to-r from-dark to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-28 bg-gradient-to-l from-dark to-transparent z-10" />
-        <div className="marquee-track flex items-center gap-10 md:gap-14 px-6">
+        <div className="marquee-track flex items-center gap-8 md:gap-10 px-6">
           {row.map((club, i) => {
             const content = (
-              <span className="flex-shrink-0 opacity-80 hover:opacity-100 transition-all duration-300 flex items-center justify-center min-w-[3rem]">
-                <ClubLogo club={club} className="h-10 md:h-12" />
+              <span className="flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
+                <ClubLogo club={club} size={56} />
               </span>
             )
 

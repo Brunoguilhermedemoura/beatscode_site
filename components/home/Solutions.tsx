@@ -47,7 +47,7 @@ export default function Solutions() {
                 <h2 className="section-title text-white mb-4">
                   Quatro módulos. Um departamento de futebol completo.
                 </h2>
-                <p className="text-white/55 text-lg">
+                <p className="text-white/60 text-xl">
                   Plataforma organizada para visão geral, online e prática — da administrativa à comunicação.
                 </p>
               </div>
@@ -77,10 +77,10 @@ export default function Solutions() {
                       className="max-h-full w-auto object-contain opacity-90 group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary-soft transition-colors">
+                  <h3 className="font-display text-2xl font-bold mb-2 group-hover:text-primary-soft transition-colors">
                     {s.label}
                   </h3>
-                  <p className="text-white/50 leading-relaxed">{s.desc}</p>
+                  <p className="text-white/55 text-lg leading-relaxed">{s.desc}</p>
                 </Link>
               </Reveal>
             ))}

@@ -11,17 +11,18 @@ export default function Hero() {
   return (
     <>
       <section className="relative min-h-[100svh] flex items-end md:items-center overflow-hidden pitch-grain text-white">
-        {/* Full-bleed product plane */}
+        {/* Fundo full-bleed da plataforma */}
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={PLATFORM_IMG}
             alt=""
             aria-hidden
-            className="absolute right-[-8%] top-1/2 -translate-y-1/2 w-[78%] max-w-5xl object-contain opacity-[0.22] md:opacity-[0.32] select-none pointer-events-none animate-fade-in"
+            className="absolute inset-0 w-full h-full object-cover object-right opacity-35 md:opacity-45 select-none pointer-events-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/90 to-dark/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/85 to-dark/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/60" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,_rgba(0,166,81,0.18),_transparent_55%)]" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-32 md:py-28">
@@ -32,10 +33,10 @@ export default function Hero() {
               alt="BeatsCode"
               className="h-12 md:h-16 w-auto mb-8 brightness-0 invert animate-brand-in"
             />
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.05] tracking-tight mb-6 animate-fade-up delay-1">
+            <h1 className="font-display text-5xl sm:text-6xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] mb-6 animate-fade-up delay-1">
               Gestão técnica que o campo sente.
             </h1>
-            <p className="text-lg md:text-xl text-white/65 leading-relaxed mb-10 max-w-xl animate-fade-up delay-2">
+            <p className="text-xl md:text-2xl text-white/70 leading-relaxed mb-10 max-w-xl animate-fade-up delay-2">
               Organize, visualize e planeje o departamento de futebol do seu clube — da base à elite — em uma plataforma na nuvem.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up delay-3">

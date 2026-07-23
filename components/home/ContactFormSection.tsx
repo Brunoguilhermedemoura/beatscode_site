@@ -32,7 +32,7 @@ export default function ContactFormSection() {
             <h2 className="section-title text-ink mb-4">
               Revolucione a gestão do seu clube de futebol
             </h2>
-            <p className="text-muted text-lg mb-8 leading-relaxed">
+            <p className="text-muted text-xl mb-8 leading-relaxed">
               Preencha o formulário e nossa equipe entra em contato. Ou fale direto pelo WhatsApp.
             </p>
             <div className="space-y-4 mb-10">

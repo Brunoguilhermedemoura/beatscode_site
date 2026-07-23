@@ -55,14 +55,14 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-base font-medium transition-colors ${
                   pathname === link.href ? 'text-primary-soft' : 'text-white/70 hover:text-white'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contato" className="btn-primary text-sm py-2.5 px-5">
+            <Link href="/contato" className="btn-primary text-base py-2.5 px-5">
               Agende uma demo
             </Link>
           </nav>
@@ -90,14 +90,14 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block text-sm font-medium py-3 ${
+                className={`block text-base font-medium py-3 ${
                   pathname === link.href ? 'text-primary-soft' : 'text-white/80'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contato" className="btn-primary text-sm w-full text-center mt-3">
+            <Link href="/contato" className="btn-primary text-base w-full text-center mt-3">
               Agende uma demo
             </Link>
           </div>

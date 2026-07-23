@@ -13,7 +13,7 @@ export default function NewsSection({ posts }: { posts: Post[] }) {
             <div>
               <p className="section-kicker">Conteúdo</p>
               <h2 className="section-title text-ink">Novidades e informações</h2>
-              <p className="text-muted mt-3 max-w-lg">
+              <p className="text-muted mt-3 max-w-lg text-lg">
                 Acompanhe as novidades da BeatsCode e o universo do futebol.
               </p>
             </div>
@@ -40,13 +40,13 @@ export default function NewsSection({ posts }: { posts: Post[] }) {
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">
                   {post.category}
                 </span>
-                <h3 className="font-display text-xl font-bold text-ink leading-snug mb-3 group-hover:text-primary transition-colors">
+                <h3 className="font-display text-2xl font-bold text-ink leading-snug mb-3 group-hover:text-primary transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-muted text-sm mb-4 line-clamp-2 flex-1">{post.excerpt}</p>
+                <p className="text-muted text-base mb-4 line-clamp-2 flex-1">{post.excerpt}</p>
                 <Link
                   href={`/noticias/${post.slug}`}
-                  className="text-primary font-semibold text-sm hover:underline underline-offset-4"
+                  className="text-primary font-semibold text-base hover:underline underline-offset-4"
                 >
                   Ler artigo →
                 </Link>

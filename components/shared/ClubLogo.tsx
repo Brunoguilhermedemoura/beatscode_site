@@ -11,23 +11,38 @@ function initials(name: string) {
     .toUpperCase()
 }
 
+/** Escudo em caixa fixa — todos ocupam o mesmo espaço visual. */
 export default function ClubLogo({
   club,
-  className = 'h-14',
+  size = 80,
 }: {
   club: Club
-  className?: string
+  /** Tamanho da caixa em px (largura e altura iguais). */
+  size?: number
 }) {
+  const boxStyle = { width: size, height: size }
+
   if (club.img) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img src={club.img} alt={club.name} className={`w-auto object-contain ${className}`} />
+      <span
+        className="inline-flex items-center justify-center shrink-0"
+        style={boxStyle}
+        title={club.name}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={club.img}
+          alt={club.name}
+          className="max-w-full max-h-full w-full h-full object-contain"
+        />
+      </span>
     )
   }
 
   return (
     <span
-      className={`inline-flex items-center justify-center rounded-full bg-dark text-white font-display font-bold text-xs tracking-wide ${className} aspect-square px-1`}
+      className="inline-flex items-center justify-center rounded-full bg-dark text-white font-display font-bold text-sm tracking-wide shrink-0"
+      style={boxStyle}
       title={club.name}
     >
       {initials(club.name)}

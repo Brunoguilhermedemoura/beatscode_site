@@ -61,10 +61,10 @@ export default function Stats() {
           {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 70}>
               <div className="text-center md:text-left md:border-l md:border-primary/25 md:pl-8 first:md:border-0 first:md:pl-0">
-                <p className="font-display text-4xl md:text-5xl font-extrabold text-primary mb-2 tracking-tight">
+                <p className="font-display text-4xl md:text-5xl font-bold text-primary mb-2 tabular-nums">
                   <Counter value={stat.value} prefix={stat.prefix} />
                 </p>
-                <p className="text-muted text-sm uppercase tracking-wider">{stat.label}</p>
+                <p className="text-muted text-base md:text-lg uppercase tracking-wider">{stat.label}</p>
               </div>
             </Reveal>
           ))}

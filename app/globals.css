@@ -18,9 +18,28 @@
   scroll-behavior: smooth;
 }
 
+html {
+  font-size: 17.5px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
 body {
   background: var(--surface);
   color: var(--ink);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-synthesis: none;
+}
+
+h1, h2, h3, h4, .font-display, .section-title {
+  font-stretch: normal;
+  letter-spacing: -0.02em;
+  font-synthesis: none;
 }
 
 ::selection {
@@ -30,27 +49,27 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-sm transition-all duration-300 tracking-wide;
+    @apply inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white font-semibold text-base px-7 py-3.5 rounded-sm transition-all duration-300 tracking-wide;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center border border-primary/80 text-primary hover:bg-primary hover:text-white font-semibold px-6 py-3 rounded-sm transition-all duration-300 tracking-wide;
+    @apply inline-flex items-center justify-center border border-primary/80 text-primary hover:bg-primary hover:text-white font-semibold text-base px-7 py-3.5 rounded-sm transition-all duration-300 tracking-wide;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center border border-white/30 text-white hover:border-white hover:bg-white/10 font-semibold px-6 py-3 rounded-sm transition-all duration-300 tracking-wide;
+    @apply inline-flex items-center justify-center border border-white/30 text-white hover:border-white hover:bg-white/10 font-semibold text-base px-7 py-3.5 rounded-sm transition-all duration-300 tracking-wide;
   }
 
   .section-title {
-    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+    @apply font-display text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-tight;
   }
 
   .section-kicker {
-    @apply text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3;
+    @apply text-primary font-semibold text-sm uppercase tracking-[0.18em] mb-3;
   }
 
   .input-field {
-    @apply w-full bg-white border border-black/10 rounded-sm px-4 py-3 text-sm text-ink placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition;
+    @apply w-full bg-white border border-black/10 rounded-sm px-4 py-3.5 text-base text-ink placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition;
   }
 }
 
