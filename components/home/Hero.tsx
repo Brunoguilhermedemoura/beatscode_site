@@ -19,7 +19,7 @@ export default function Hero() {
             src={HERO_IMG}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-center select-none pointer-events-none"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/55 to-dark/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/15 to-dark/50" />
