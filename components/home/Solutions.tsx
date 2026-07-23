@@ -7,25 +7,25 @@ import Reveal from '@/components/shared/Reveal'
 
 const solutions = [
   {
-    href: '/solucoes#administrativa',
+    href: '/solucoes/gestao-administrativa',
     label: 'Gestão Administrativa',
     desc: 'Pessoas, contratos, logística, alojamentos e documentos em um só fluxo.',
     img: 'https://beatscode.com/wp-content/uploads/2022/12/BEATSCODE-MODULOS-NEGATIVO_ADM-copy.png',
   },
   {
-    href: '/solucoes#tecnica',
+    href: '/solucoes/gestao-tecnica',
     label: 'Gestão Técnica',
     desc: 'Competições, treinamentos, captação e programação semanal.',
     img: 'https://beatscode.com/wp-content/uploads/2022/12/BEATSCODE-MODULOS-NEGATIVO_TECNICA-copy.png',
   },
   {
-    href: '/solucoes#saude',
+    href: '/solucoes/gestao-saude-e-performance',
     label: 'Saúde e Performance',
     desc: 'Prontuários, fisiologia, nutrição, psicologia e GPS integrados.',
     img: 'https://beatscode.com/wp-content/uploads/2022/12/BEATSCODE-MODULOS-NEGATIVO_SAUDE-copy.png',
   },
   {
-    href: '/solucoes#comunicacao',
+    href: '/solucoes/gestao-da-comunicacao',
     label: 'Gestão da Comunicação',
     desc: 'App mobile e BeatsCore TV para o clube inteiro na mesma página.',
     img: 'https://beatscode.com/wp-content/uploads/2022/12/BEATSCODE-MODULOS-NEGATIVO_COMUNICACAO-copy.png',
@@ -48,7 +48,8 @@ export default function Solutions() {
                   Quatro módulos. Um departamento de futebol completo.
                 </h2>
                 <p className="text-white/60 text-xl">
-                  Plataforma organizada para visão geral, online e prática — da administrativa à comunicação.
+                  Plataforma organizada para visão geral, online e prática — da administrativa à
+                  comunicação.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -62,25 +63,25 @@ export default function Solutions() {
             </div>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6 items-stretch">
             {solutions.map((s, i) => (
-              <Reveal key={s.href} delay={i * 80}>
+              <Reveal key={s.href} delay={i * 80} className="h-full">
                 <Link
                   href={s.href}
-                  className="group block bg-dark-2/80 border border-white/5 hover:border-primary/40 p-6 md:p-8 transition-all duration-300 hover:-translate-y-1"
+                  className="group flex h-full flex-col bg-dark-2/80 border border-white/5 hover:border-primary/40 p-6 md:p-8 transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="h-28 md:h-36 flex items-center justify-center mb-6 bg-dark-3/50 rounded-sm overflow-hidden">
+                  <div className="h-28 md:h-36 flex items-center justify-center mb-6 bg-dark-3/50 overflow-hidden shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={s.img}
                       alt={s.label}
-                      className="max-h-full w-auto object-contain opacity-90 group-hover:scale-105 transition-transform duration-500"
+                      className="h-full w-full object-contain p-3 opacity-90 group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <h3 className="font-display text-2xl font-bold mb-2 group-hover:text-primary-soft transition-colors">
                     {s.label}
                   </h3>
-                  <p className="text-white/55 text-lg leading-relaxed">{s.desc}</p>
+                  <p className="text-white/55 text-lg leading-relaxed flex-1">{s.desc}</p>
                 </Link>
               </Reveal>
             ))}

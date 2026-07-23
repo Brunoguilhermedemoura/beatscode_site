@@ -1,0 +1,72 @@
+'use client'
+
+import Link from 'next/link'
+import Reveal from '@/components/shared/Reveal'
+import { solutionModules } from '@/lib/modules'
+
+export default function ModulesSection() {
+  return (
+    <section className="py-24 md:py-28 bg-dark text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(0,166,81,0.12),_transparent_55%)]" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="max-w-2xl mb-16 md:mb-20">
+            <p className="section-kicker">Módulos da plataforma</p>
+            <h2 className="section-title text-white mb-4">
+              Quatro pilares para o departamento de futebol
+            </h2>
+            <p className="text-white/60 text-lg leading-relaxed">
+              Conheça cada módulo e veja em detalhe como a BeatsCode organiza a rotina do seu clube.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="space-y-24 md:space-y-28">
+          {solutionModules.map((mod, i) => {
+            const imageFirst = i % 2 === 0
+            return (
+              <div
+                key={mod.slug}
+                id={mod.anchor}
+                className="grid md:grid-cols-2 gap-10 md:gap-14 items-center scroll-mt-28"
+              >
+                <Reveal className={imageFirst ? '' : 'md:order-2'}>
+                  <div className="border border-white/10 bg-dark-2/60 px-6 py-10 md:px-10 md:py-12 flex items-center justify-center min-h-[200px]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={mod.imgNegativo}
+                      alt={mod.title}
+                      className="w-full max-w-md object-contain"
+                    />
+                  </div>
+                </Reveal>
+
+                <Reveal delay={80} className={imageFirst ? '' : 'md:order-1'}>
+                  <p className="section-kicker">Módulo {String(i + 1).padStart(2, '0')}</p>
+                  <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+                    {mod.title}
+                  </h3>
+                  <p className="text-white/65 text-base md:text-lg leading-relaxed mb-6">
+                    {mod.intro}
+                  </p>
+                  <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-8">
+                    {mod.featureLabels.map((f) => (
+                      <li key={f} className="flex items-center gap-2.5 text-white/85 text-sm md:text-base">
+                        <span className="w-1.5 h-1.5 bg-primary flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href={`/solucoes/${mod.slug}`} className="btn-primary">
+                    Ver mais
+                  </Link>
+                </Reveal>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}

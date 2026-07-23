@@ -3,26 +3,27 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import DemoModal from '@/components/shared/DemoModal'
-import { LOGO_URL, PLATFORM_IMG } from '@/lib/clubs'
+import { LOGO_URL } from '@/lib/clubs'
+
+const HERO_IMG = '/hero/campo-aereo.png'
 
 export default function Hero() {
   const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <>
-      <section className="relative min-h-[100svh] flex items-end md:items-center overflow-hidden pitch-grain text-white">
-        {/* Fundo full-bleed da plataforma */}
+      <section className="relative min-h-[100svh] flex items-end md:items-center overflow-hidden text-white">
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={PLATFORM_IMG}
+            src={HERO_IMG}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover object-right opacity-35 md:opacity-45 select-none pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/85 to-dark/35" />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/60" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,_rgba(0,166,81,0.18),_transparent_55%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/55 to-dark/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/15 to-dark/50" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_25%,_rgba(10,15,12,0.45)_100%)]" />
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-32 md:py-28">
