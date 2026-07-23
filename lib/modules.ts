@@ -14,7 +14,10 @@ export type SolutionModule = {
   featureLabels: string[]
   accent: string
   icon: 'admin' | 'technical' | 'health' | 'comms'
+  /** Logo para fundo escuro */
   imgNegativo: string
+  /** Logo colorido para fundo claro */
+  imgColor: string
 }
 
 export const solutionModules: SolutionModule[] = [
@@ -23,10 +26,12 @@ export const solutionModules: SolutionModule[] = [
     anchor: 'administrativa',
     title: 'Gestão Administrativa',
     shortTitle: 'Administrativa',
-    accent: '#00a651',
+    accent: '#2b3a8f',
     icon: 'admin',
     imgNegativo:
       'https://beatscode.com/wp-content/uploads/2022/12/BEATSCODE-MODULOS-NEGATIVO_ADM-copy.png',
+    imgColor:
+      'https://beatscode.com/wp-content/uploads/2022/02/BEATSCODE-MODULOS_ADM-1024x349.png',
     intro:
       'Tenha uma visão geral do cadastro de pessoas, contratos e produtividades de atletas e comissão técnica, aprovação de documentos, relatos e registros de serviço social, organização de alojamentos e refeitórios, e históricos de atletas monitorados pelo setor de mercado do clube.',
     featureLabels: [
@@ -74,10 +79,12 @@ export const solutionModules: SolutionModule[] = [
     anchor: 'tecnica',
     title: 'Gestão Técnica',
     shortTitle: 'Técnica',
-    accent: '#1bd46a',
+    accent: '#b8d100',
     icon: 'technical',
     imgNegativo:
       'https://beatscode.com/wp-content/uploads/2022/12/BEATSCODE-MODULOS-NEGATIVO_TECNICA-copy.png',
+    imgColor:
+      'https://beatscode.com/wp-content/uploads/2022/02/BEATSCODE-MODULOS_TECNICA-1024x349.png',
     intro:
       'Organize a gestão de competições, logística de jogos, treinamentos, programação semanal de treinamentos, reuniões técnicas, planejamento e controle de avaliações do departamento de captação de atletas de uma forma simples e prática.',
     featureLabels: [
@@ -115,10 +122,12 @@ export const solutionModules: SolutionModule[] = [
     anchor: 'saude',
     title: 'Saúde e Performance',
     shortTitle: 'Saúde & Performance',
-    accent: '#007a3d',
+    accent: '#00a651',
     icon: 'health',
     imgNegativo:
       'https://beatscode.com/wp-content/uploads/2022/12/BEATSCODE-MODULOS-NEGATIVO_SAUDE-copy.png',
+    imgColor:
+      'https://beatscode.com/wp-content/uploads/2022/02/BEATSCODE-MODULOS_SAUDE-1024x349.png',
     intro:
       'Neste módulo seu clube conseguirá acompanhar a saúde, performance e emocional dos atletas. As informações são extraídas de prontuários médicos, condutas da fisiologia, relatórios da nutrição, psicológicos e pedagógicos, e integração de GPS, assim, seu clube acompanhará as cargas internas e externas de cada atleta.',
     featureLabels: [
@@ -161,10 +170,12 @@ export const solutionModules: SolutionModule[] = [
     anchor: 'comunicacao',
     title: 'Gestão da Comunicação',
     shortTitle: 'Comunicação',
-    accent: '#00a651',
+    accent: '#e31c23',
     icon: 'comms',
     imgNegativo:
       'https://beatscode.com/wp-content/uploads/2022/12/BEATSCODE-MODULOS-NEGATIVO_COMUNICACAO-copy.png',
+    imgColor:
+      'https://beatscode.com/wp-content/uploads/2022/02/BEATSCODE-MODULOS_COMUNICACAO-1024x349.png',
     intro:
       'Possibilita que todo o departamento de futebol do clube receba as mesmas informações, de forma dinâmica, através de um aplicativo mobile para Android e iOS. Da mesma maneira, diante de um aplicativo ligado nos televisores do clube, a plataforma entrega notificações, alertas e informações direcionada para todas as pessoas e setores do futebol do seu clube.',
     featureLabels: ['BeatsCore TV', 'Aplicativo'],

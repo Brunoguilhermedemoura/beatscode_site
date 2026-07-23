@@ -190,17 +190,17 @@ export default function ModuleDetailView({ mod }: { mod: SolutionModule }) {
 
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="flex justify-center md:justify-start">
-              <div className="bg-dark px-6 py-8 w-full max-w-md flex items-center justify-center">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={mod.imgNegativo}
-                  alt={mod.title}
-                  className="w-full object-contain"
-                />
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={mod.imgColor}
+                alt={mod.title}
+                className="w-full max-w-md object-contain"
+              />
             </div>
             <div>
-              <p className="section-kicker">Módulo {String(idx + 1).padStart(2, '0')}</p>
+              <p className="section-kicker" style={{ color: mod.accent }}>
+                Módulo {String(idx + 1).padStart(2, '0')}
+              </p>
               <h1 className="font-display text-3xl md:text-4xl font-bold text-ink mb-4">
                 {mod.title}
               </h1>
@@ -233,20 +233,20 @@ export default function ModuleDetailView({ mod }: { mod: SolutionModule }) {
           <h2 className="font-display text-2xl md:text-3xl font-bold text-ink mb-10">
             Nossas soluções
           </h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-12 items-center">
             {solutionModules.map((m) => (
               <Link
                 key={m.slug}
                 href={`/solucoes/${m.slug}`}
-                className={`block bg-dark px-3 py-5 transition-opacity ${
-                  m.slug === mod.slug ? 'ring-2 ring-primary opacity-100' : 'opacity-80 hover:opacity-100'
+                className={`block px-2 py-2 transition-opacity ${
+                  m.slug === mod.slug ? 'opacity-100' : 'opacity-70 hover:opacity-100'
                 }`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={m.imgNegativo}
+                  src={m.imgColor}
                   alt={m.title}
-                  className="w-full h-16 object-contain"
+                  className="w-full h-20 object-contain"
                 />
               </Link>
             ))}

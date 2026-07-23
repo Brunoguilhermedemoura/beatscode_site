@@ -32,10 +32,10 @@ export default function ModulesSection() {
                 className="grid md:grid-cols-2 gap-10 md:gap-14 items-center scroll-mt-28"
               >
                 <Reveal className={imageFirst ? '' : 'md:order-2'}>
-                  <div className="border border-white/10 bg-dark-2/60 px-6 py-10 md:px-10 md:py-12 flex items-center justify-center min-h-[200px]">
+                  <div className="bg-white px-6 py-10 md:px-10 md:py-12 flex items-center justify-center min-h-[200px]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={mod.imgNegativo}
+                      src={mod.imgColor}
                       alt={mod.title}
                       className="w-full max-w-md object-contain"
                     />
@@ -43,7 +43,12 @@ export default function ModulesSection() {
                 </Reveal>
 
                 <Reveal delay={80} className={imageFirst ? '' : 'md:order-1'}>
-                  <p className="section-kicker">Módulo {String(i + 1).padStart(2, '0')}</p>
+                  <p
+                    className="text-sm font-semibold uppercase tracking-[0.18em] mb-3"
+                    style={{ color: mod.accent }}
+                  >
+                    Módulo {String(i + 1).padStart(2, '0')}
+                  </p>
                   <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
                     {mod.title}
                   </h3>
@@ -52,13 +57,25 @@ export default function ModulesSection() {
                   </p>
                   <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-8">
                     {mod.featureLabels.map((f) => (
-                      <li key={f} className="flex items-center gap-2.5 text-white/85 text-sm md:text-base">
-                        <span className="w-1.5 h-1.5 bg-primary flex-shrink-0" />
+                      <li
+                        key={f}
+                        className="flex items-center gap-2.5 text-white/85 text-sm md:text-base"
+                      >
+                        <span
+                          className="w-1.5 h-1.5 flex-shrink-0"
+                          style={{ backgroundColor: mod.accent }}
+                        />
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <Link href={`/solucoes/${mod.slug}`} className="btn-primary">
+                  <Link
+                    href={`/solucoes/${mod.slug}`}
+                    className={`inline-flex items-center justify-center font-semibold text-base px-7 py-3.5 transition-opacity hover:opacity-90 ${
+                      mod.accent === '#b8d100' ? 'text-ink' : 'text-white'
+                    }`}
+                    style={{ backgroundColor: mod.accent }}
+                  >
                     Ver mais
                   </Link>
                 </Reveal>
