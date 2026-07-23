@@ -1,16 +1,37 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+function envUrl() {
+  return process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() || ''
+}
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+function envAnon() {
+  return process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim() || ''
+}
 
-// Server-side client with elevated permissions
-export function createServiceClient() {
+function envService() {
+  return process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() || ''
+}
+
+/** True when Supabase env vars look configured (not placeholders). */
+export function isSupabaseConfigured() {
+  const url = envUrl()
+  const key = envService() || envAnon()
+  return Boolean(url && key && !url.includes('seu-projeto') && !key.includes('sua-'))
+}
+
+/**
+ * Evita crash no `next build` da Netlify quando as env vars ainda não existem.
+ * Em runtime sem config real, as queries falham e o app usa fallback local.
+ */
+function makeClient(url: string, key: string): SupabaseClient {
   return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
+    url || 'https://placeholder.supabase.co',
+    key || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder'
   )
+}
+
+export function createServiceClient() {
+  return makeClient(envUrl(), envService() || envAnon())
 }
 
 export type Post = {

@@ -1,4 +1,4 @@
-import { createServiceClient } from '@/lib/supabase'
+import { createServiceClient, isSupabaseConfigured } from '@/lib/supabase'
 import { Post } from '@/types'
 import localPosts from '@/data/noticias.json'
 
@@ -11,19 +11,8 @@ function getLocalPosts(): Post[] {
     )
 }
 
-function supabaseConfigured() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || ''
-  return Boolean(
-    url &&
-      key &&
-      !url.includes('seu-projeto') &&
-      !key.includes('sua-')
-  )
-}
-
 export async function getPublishedPosts(limit?: number): Promise<Post[]> {
-  if (supabaseConfigured()) {
+  if (isSupabaseConfigured()) {
     try {
       const supabase = createServiceClient()
       let query = supabase
@@ -48,7 +37,7 @@ export async function getPublishedPosts(limit?: number): Promise<Post[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  if (supabaseConfigured()) {
+  if (isSupabaseConfigured()) {
     try {
       const supabase = createServiceClient()
       const { data, error } = await supabase
