@@ -4,7 +4,7 @@ import { SessionProvider } from '@/components/shared/SessionProvider'
 
 export const metadata: Metadata = {
   title: {
-    default: 'BeatsCode | Gestão Técnica Inteligente de Futebol',
+    default: 'Home - Beatscode',
     template: '%s | BeatsCode',
   },
   description:

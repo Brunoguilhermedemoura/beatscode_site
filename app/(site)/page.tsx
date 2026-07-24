@@ -11,7 +11,9 @@ import ContactFormSection from '@/components/home/ContactFormSection'
 import { getPublishedPosts } from '@/lib/posts'
 
 export const metadata: Metadata = {
-  title: 'BeatsCode | Gestão Técnica Inteligente de Futebol',
+  title: {
+    absolute: 'Home - Beatscode',
+  },
   description:
     'Plataforma de gestão técnica inteligente para clubes de futebol, da base à elite do futebol brasileiro.',
 }
