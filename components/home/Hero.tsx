@@ -5,7 +5,8 @@ import Link from 'next/link'
 import DemoModal from '@/components/shared/DemoModal'
 import { LOGO_URL } from '@/lib/clubs'
 
-const HERO_IMG = '/hero/campo-aereo.png'
+const HERO_VIDEO = '/hero/estadio.mp4'
+const HERO_POSTER = '/hero/campo-aereo.png'
 
 export default function Hero() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -14,13 +15,17 @@ export default function Hero() {
     <>
       <section className="relative min-h-[100svh] flex items-end md:items-center overflow-hidden text-white">
         <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={HERO_IMG}
-            alt=""
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={HERO_POSTER}
             aria-hidden
             className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-center select-none pointer-events-none"
-          />
+          >
+            <source src={HERO_VIDEO} type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/55 to-dark/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/15 to-dark/50" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_25%,_rgba(10,15,12,0.45)_100%)]" />

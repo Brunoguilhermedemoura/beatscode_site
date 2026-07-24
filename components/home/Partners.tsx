@@ -13,7 +13,7 @@ export default function Partners() {
         </Reveal>
 
         <Reveal delay={80}>
-          <div className="rounded-2xl bg-[#d8dde3] px-6 py-10 md:px-12 md:py-12">
+          <div className="rounded-2xl bg-[#f4f5f7] px-4 py-6 md:px-6 md:py-8">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-x-8 gap-y-10 items-center justify-items-center">
               {partners.map((p) => (
                 <div
