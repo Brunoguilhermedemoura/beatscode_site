@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
 import ClubsMarquee from '@/components/home/ClubsMarquee'
+import ProblemSection from '@/components/home/ProblemSection'
 import ValueProps from '@/components/home/ValueProps'
 import Solutions from '@/components/home/Solutions'
 import Stats from '@/components/home/Stats'
@@ -24,6 +25,7 @@ export default async function HomePage() {
     <>
       <Hero />
       <ClubsMarquee />
+      <ProblemSection />
       <ValueProps />
       <Solutions />
       <Stats />

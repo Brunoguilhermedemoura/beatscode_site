@@ -1,26 +1,41 @@
 import { clubs } from '@/lib/clubs'
 import ClubLogo from '@/components/shared/ClubLogo'
-import Reveal from '@/components/shared/Reveal'
 import Link from 'next/link'
+
+const serieA2026 = [
+  'Flamengo',
+  'Palmeiras',
+  'São Paulo FC',
+  'Santos FC',
+  'CR Vasco da Gama',
+  'Atlético Mineiro',
+  'Cruzeiro',
+  'Sport Club Internacional',
+  'Bahia',
+  'Coritiba',
+  'Chapecoense',
+]
+
+const orderedClubs = [...clubs].sort((a, b) => {
+  const aIndex = serieA2026.indexOf(a.name)
+  const bIndex = serieA2026.indexOf(b.name)
+
+  if (aIndex === -1 && bIndex === -1) return 0
+  if (aIndex === -1) return 1
+  if (bIndex === -1) return -1
+  return aIndex - bIndex
+})
 
 export default function ClubsSection() {
   return (
-    <section className="py-24 md:py-28 bg-surface">
+    <section className="bg-surface pb-20 pt-8 md:pb-24 md:pt-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <p className="section-kicker text-center">Clientes</p>
-          <h2 className="section-title text-ink text-center mb-4">Clubes que confiam na BeatsCode</h2>
-          <p className="text-muted text-center max-w-xl mx-auto mb-12 text-lg">
-            Da elite ao desenvolvimento de base — clubes de todo o Brasil usam a plataforma.
-          </p>
-        </Reveal>
-
-        <div className="flex flex-wrap justify-center items-center gap-5 md:gap-6 max-w-5xl mx-auto">
-          {clubs.map((club) => {
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-8 md:gap-x-8 md:gap-y-10">
+          {orderedClubs.map((club) => {
             const inner = (
               <div
                 title={club.name}
-                className="opacity-95 hover:opacity-100 transition-transform duration-300 hover:scale-110"
+                className="flex h-[72px] w-[72px] items-center justify-center opacity-95 transition-transform duration-300 hover:scale-110 hover:opacity-100 md:h-[84px] md:w-[84px]"
               >
                 <ClubLogo club={club} size={84} />
               </div>
@@ -42,7 +57,7 @@ export default function ClubsSection() {
           })}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="mt-12 text-center">
           <Link href="/contato" className="btn-outline">
             Quero meu clube aqui
           </Link>

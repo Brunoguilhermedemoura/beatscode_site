@@ -18,7 +18,7 @@ export default function ClubsMarquee() {
           {row.map((club, i) => {
             const content = (
               <span className="flex-shrink-0 opacity-90 hover:opacity-100 transition-opacity duration-300">
-                <ClubLogo club={club} size={56} />
+                <ClubLogo club={club} size={72} />
               </span>
             )
 

@@ -9,7 +9,9 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/beatscode', label: 'BeatsCode' },
   { href: '/solucoes', label: 'Soluções' },
+  { href: '/planos', label: 'Planos' },
   { href: '/clubes', label: 'Clubes' },
+  { href: '/depoimentos', label: 'Depoimentos' },
   { href: '/noticias', label: 'Notícias' },
   { href: '/contato', label: 'Contato' },
 ]
@@ -50,19 +52,19 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-base font-medium transition-colors ${
+                className={`text-sm font-medium transition-colors xl:text-base ${
                   pathname === link.href ? 'text-primary-soft' : 'text-white/70 hover:text-white'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contato" className="btn-primary text-base py-2.5 px-5">
+            <Link href="/contato" className="btn-primary px-4 py-2.5 text-sm xl:px-5 xl:text-base">
               Agende uma demo
             </Link>
           </nav>

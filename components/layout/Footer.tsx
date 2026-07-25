@@ -5,7 +5,9 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/beatscode', label: 'BeatsCode' },
   { href: '/solucoes', label: 'Soluções' },
+  { href: '/planos', label: 'Planos' },
   { href: '/clubes', label: 'Clubes' },
+  { href: '/depoimentos', label: 'Depoimentos' },
   { href: '/noticias', label: 'Notícias' },
   { href: '/contato', label: 'Contato' },
 ]

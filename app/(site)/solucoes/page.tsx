@@ -5,6 +5,7 @@ import DemoModal from '@/components/shared/DemoModal'
 import Reveal from '@/components/shared/Reveal'
 import ImplementationPhases from '@/components/solucoes/ImplementationPhases'
 import ModulesSection from '@/components/solucoes/ModulesSection'
+import ProductShowcase from '@/components/solucoes/ProductShowcase'
 
 export default function SolucoesPage() {
   const [modal, setModal] = useState(false)
@@ -55,14 +56,16 @@ export default function SolucoesPage() {
             <Reveal delay={100}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://beatscode.com/wp-content/uploads/2022/02/SOLUCOES01.png"
-                alt="Soluções BeatsCode"
+                src="/hero/solucoes.png"
+                alt="Profissional utilizando a plataforma BeatsCode"
                 className="w-full"
               />
             </Reveal>
           </div>
         </div>
       </section>
+
+      <ProductShowcase />
 
       <ModulesSection />
 

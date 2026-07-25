@@ -42,8 +42,9 @@ export default function Hero() {
             <h1 className="font-display text-5xl sm:text-6xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] mb-6 animate-fade-up delay-1">
               Gestão técnica que o campo sente.
             </h1>
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed mb-10 max-w-xl animate-fade-up delay-2">
-              Organize, visualize e planeje o departamento de futebol do seu clube — da base à elite — em uma plataforma na nuvem.
+            <p className="text-xl md:text-2xl text-white/70 leading-relaxed mb-10 max-w-2xl animate-fade-up delay-2">
+              A plataforma que conecta todos os setores do futebol — da captação ao profissional —
+              centralizando informações, processos e decisões em um único lugar.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up delay-3">
               <button onClick={() => setModalOpen(true)} className="btn-primary text-base px-8 py-4">

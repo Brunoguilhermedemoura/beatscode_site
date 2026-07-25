@@ -32,24 +32,21 @@ export default function ModulesSection() {
                 className="grid md:grid-cols-2 gap-10 md:gap-14 items-center scroll-mt-28"
               >
                 <Reveal className={imageFirst ? '' : 'md:order-2'}>
-                  <div className="bg-dark px-6 py-10 md:px-10 md:py-12 flex items-center justify-center min-h-[200px]">
+                  <div className="flex min-h-[180px] items-center justify-center md:min-h-[220px]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={mod.imgNegativo}
                       alt={mod.title}
-                      className="w-full max-w-md object-contain"
+                      className="w-full max-w-md object-contain mix-blend-lighten"
                     />
                   </div>
                 </Reveal>
 
                 <Reveal delay={80} className={imageFirst ? '' : 'md:order-1'}>
-                  <p
-                    className="text-sm font-semibold uppercase tracking-[0.18em] mb-3"
+                  <h3
+                    className="font-display text-3xl md:text-4xl font-bold mb-4"
                     style={{ color: mod.accent }}
                   >
-                    Módulo {String(i + 1).padStart(2, '0')}
-                  </p>
-                  <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
                     {mod.title}
                   </h3>
                   <p className="text-white/65 text-base md:text-lg leading-relaxed mb-6">
