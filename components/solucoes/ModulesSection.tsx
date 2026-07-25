@@ -35,9 +35,9 @@ export default function ModulesSection() {
                   <div className="flex min-h-[180px] items-center justify-center md:min-h-[220px]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={mod.imgNegativo}
+                      src={mod.imgColor}
                       alt={mod.title}
-                      className="w-full max-w-md object-contain mix-blend-lighten"
+                      className="w-full max-w-md object-contain"
                     />
                   </div>
                 </Reveal>
