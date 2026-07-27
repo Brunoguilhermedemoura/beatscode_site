@@ -32,7 +32,7 @@ export default function Solutions() {
                   Quatro módulos. Um departamento de futebol completo.
                 </h2>
                 <p className="text-white/60 text-xl">
-                  Plataforma organizada para visão geral, online e prática — da administrativa à
+                  Plataforma organizada para visão geral, online e prática, da administrativa à
                   comunicação.
                 </p>
               </div>

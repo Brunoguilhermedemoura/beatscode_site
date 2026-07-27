@@ -46,6 +46,7 @@ export const clubs: Club[] = [
   { name: 'Santa Cruz FC', img: '/clubs/santa-cruz.png', href: 'https://santacruzpe.com.br' },
   { name: 'Santos FC', img: `${WP}/2023/07/padrao_clubes_0004_Santos.png`, href: 'https://www.santosfc.com.br' },
   { name: 'São Paulo FC', img: `${WP}/2025/02/01.png`, href: 'https://www.saopaulofc.net' },
+  { name: 'Sfera FC', img: '/clubs/sfera.png', href: 'https://sferafc.com.br/' },
   { name: 'Sport Club do Recife', img: `${WP}/2023/07/padrao_clubes_0002_Sportrecife.png`, href: 'https://www.sportrecife.com.br' },
   { name: 'Uberlândia EC', img: '/clubs/uberlandia.png', href: 'https://uberlandiaesporte.com.br' },
   { name: 'CR Vasco da Gama', img: `${WP}/2023/07/padrao_clubes_0001_vasco.png`, href: 'https://www.vasco.com.br' },

@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import DemoModal from '@/components/shared/DemoModal'
-import { LOGO_URL } from '@/lib/clubs'
 
 const HERO_VIDEO = '/hero/estadio.mp4'
 const HERO_POSTER = '/hero/campo-aereo.png'
@@ -33,17 +32,11 @@ export default function Hero() {
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-32 md:py-28">
           <div className="max-w-2xl">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={LOGO_URL}
-              alt="BeatsCode"
-              className="h-12 md:h-16 w-auto mb-8 brightness-0 invert animate-brand-in"
-            />
             <h1 className="font-display text-5xl sm:text-6xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] mb-6 animate-fade-up delay-1">
               Gestão técnica que o campo sente.
             </h1>
             <p className="text-xl md:text-2xl text-white/70 leading-relaxed mb-10 max-w-2xl animate-fade-up delay-2">
-              A plataforma que conecta todos os setores do futebol — da captação ao profissional —
+              A plataforma que conecta todos os setores do futebol da captação ao profissional,
               centralizando informações, processos e decisões em um único lugar.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up delay-3">
