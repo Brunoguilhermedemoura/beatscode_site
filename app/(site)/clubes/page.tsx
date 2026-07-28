@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import ClubsSection from '@/components/home/ClubsSection'
+import ClubsMapSection from '@/components/clubs/ClubsMapSection'
 
 export const metadata: Metadata = {
   title: 'Clubes',
@@ -9,19 +9,19 @@ export const metadata: Metadata = {
 export default function ClubesPage() {
   return (
     <>
-      <section className="relative pitch-grain text-white pt-28 pb-10 md:pt-32 md:pb-12 overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative pitch-grain overflow-hidden pb-10 pt-28 text-white md:pb-12 md:pt-32">
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <p className="section-kicker">Clientes</p>
-          <h1 className="font-display text-4xl md:text-6xl font-bold mb-3">
+          <h1 className="mb-3 font-display text-4xl font-bold md:text-6xl">
             Clubes
           </h1>
-          <p className="text-white/55 text-lg max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-lg text-white/55">
             Quem entende que o futebol vai muito além do campo já está pronto para o futuro com a
             BeatsCode.
           </p>
         </div>
       </section>
-      <ClubsSection />
+      <ClubsMapSection />
     </>
   )
 }

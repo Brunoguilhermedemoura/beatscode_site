@@ -22,7 +22,9 @@ export default function ClubLogo({
 }) {
   const boxStyle = { width: size, height: size }
 
-  if (club.img) {
+  const src = club.logo || club.img
+
+  if (src) {
     return (
       <span
         className="inline-flex items-center justify-center shrink-0"
@@ -31,7 +33,7 @@ export default function ClubLogo({
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={club.img}
+          src={src}
           alt={club.name}
           className="max-w-full max-h-full w-full h-full object-contain"
         />

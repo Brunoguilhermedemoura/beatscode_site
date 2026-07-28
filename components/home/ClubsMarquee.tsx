@@ -22,16 +22,17 @@ export default function ClubsMarquee() {
               </span>
             )
 
-            if (!club.href) {
+            const href = club.website || club.href
+            if (!href) {
               return <span key={`${club.name}-${i}`}>{content}</span>
             }
 
             return (
               <a
                 key={`${club.name}-${i}`}
-                href={club.href}
-                target={club.href.startsWith('http') ? '_blank' : undefined}
-                rel={club.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 title={club.name}
               >
                 {content}
